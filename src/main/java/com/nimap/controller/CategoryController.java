@@ -1,5 +1,4 @@
 package com.nimap.controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -20,26 +19,22 @@ public class CategoryController {
         return categoryService.getAllCategories(page, size);
     }
 
-    // Create a new category
     @PostMapping("/create")
     public Category createCategory(@RequestBody Category category) {
     	category.getProducts().forEach(product -> product.setCategory(category));
         return categoryService.createCategory(category);
     }
 
-    // Get category by ID
     @GetMapping("/{id}")
     public Category getCategoryById(@PathVariable Long id) {
         return categoryService.getCategoryById(id);
     }
 
-    // Update category by ID
     @PutMapping("/{id}")
     public Category updateCategory(@PathVariable Long id, @RequestBody Category category) {
         return categoryService.updateCategory(id, category);
     }
 
-    // Delete category by ID
     @DeleteMapping("/{id}")
     public void deleteCategory(@PathVariable Long id) {
         categoryService.deleteCategory(id);

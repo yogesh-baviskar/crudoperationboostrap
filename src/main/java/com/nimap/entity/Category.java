@@ -1,6 +1,5 @@
 package com.nimap.entity;
 
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
